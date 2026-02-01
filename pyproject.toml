@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "finalproject-Zasorin-M25-555"
+version = "0.1.0"
+description = "ValutaTrade Hub - платформа для отслеживания и симуляции торговли валютами"
+authors = ["ZasorinES <bboy.ftozo@gmail.com>"]
+readme = "README.md"
+packages = [{include = "valutatrade_hub"}]
+
+[tool.poetry.scripts]
+project = "main:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+prettytable = "^3.10.0"
+requests = "^2.31.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.0"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E501"]
+
+[tool.valutatrade]
+data_path = "data"
+rates_ttl_seconds = 300
+default_base_currency = "USD"
+log_path = "logs"
+log_level = "INFO"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
